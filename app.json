@@ -1,0 +1,27 @@
+{
+  "name": "Search files in GDrive",
+  "logo": "https://telegra.ph/file/820216b57a11a1f895c9c.jpg",
+  "repository": "https://github.com/mobilegendeng447/search-bot",
+  "website": "https://github.com/mobilegendeng447/search-bot",
+  "env": {
+    "BOT_TOKEN": {
+      "description": "Your bot token from BotFather",
+      "value": ""
+    },
+    "OWNER_ID": {
+      "description": "Your telegram id, not username",
+      "value": ""
+    },
+    "TELEGRAPH_TOKEN": {
+      "description": "Telegraph token from telegraph_token.py",
+      "required": false
+    }
+  },
+   "stack": "container",
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "free"
+    }
+  }
+}
