@@ -87,7 +87,7 @@ class GoogleDriveHelper:
                     content += f'<b> | <a href="https://telegra.ph/{self.path[nxt_page]}">Next</a></b>'
                     nxt_page += 1
             telegra_ph.edit_page(path = self.path[prev_page],
-                                 title = 'Paraboy',
+                                 title = 'Luna-Search',
                                  html_content=content)
         return
 
@@ -101,12 +101,12 @@ class GoogleDriveHelper:
             INDEX += 1          
             if response:
                 if add_title_msg == True:
-                    msg = f'<h3>Search Results for 🔗 : {fileName}</h3><br>@topglobal_epep #😆😆😆<br><br>'
+                    msg = f'<h3>Search Results for 🔗 : {fileName}</h3><br>🔎🔎<br><br>'
                     add_title_msg = False
                 msg += f"╾────────────╼<br><b>{DRIVE_NAME[INDEX]}</b><br>╾────────────╼<br>"
                 for file in response:
                     if file.get('mimeType') == "application/vnd.google-apps.folder":  # Detect Whether Current Entity is a Folder or File.
-                        msg += f"📦📦<code>{file.get('name')}</code> <b>(folder)</b><br>" \
+                        msg += f"📂📂<code>{file.get('name')}</code> <b>(folder)</b><br>" \
                                f"<b><a href='https://drive.google.com/drive/folders/{file.get('id')}'>Drive Link</a></b>"
                         if INDEX_URL[INDEX] is not None:
                             url_path = requests.utils.quote(f'{file.get("name")}')
@@ -133,15 +133,15 @@ class GoogleDriveHelper:
             return "No Result Found :(", None
 
         for content in self.telegraph_content :
-            self.path.append(telegra_ph.create_page(title = 'Paraboy',
+            self.path.append(telegra_ph.create_page(title = 'Search Files',
                                                 html_content=content )['path'])
 
         self.num_of_path = len(self.path)      
         if self.num_of_path > 1:
             self.edit_telegraph()
 
-        msg = f" Search Results For {fileName} 🌈🌈 "
+        msg = f" Hasil dari {fileName} 🔎 "
         buttons = button_builder.ButtonMaker()   
-        buttons.buildbutton("Paraboy 🕶️", f"https://telegra.ph/{self.path[0]}")
+        buttons.buildbutton("•Klik Disini•", f"https://telegra.ph/{self.path[0]}")
 
         return msg, InlineKeyboardMarkup(buttons.build_menu(1))
