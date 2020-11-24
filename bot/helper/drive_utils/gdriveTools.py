@@ -87,7 +87,7 @@ class GoogleDriveHelper:
                     content += f'<b> | <a href="https://telegra.ph/{self.path[nxt_page]}">Next</a></b>'
                     nxt_page += 1
             telegra_ph.edit_page(path = self.path[prev_page],
-                                 title = 'Luna-Search',
+                                 title = 'ParaboySearch',
                                  html_content=content)
         return
 
@@ -142,6 +142,6 @@ class GoogleDriveHelper:
 
         msg = f" Hasil dari {fileName} 🔎 "
         buttons = button_builder.ButtonMaker()   
-        buttons.buildbutton("•Klik Disini•", f"https://telegra.ph/{self.path[0]}")
+        buttons.buildbutton("ParaBoy", f"https://telegra.ph/{self.path[0]}")
 
         return msg, InlineKeyboardMarkup(buttons.build_menu(1))
